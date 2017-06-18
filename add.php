@@ -7,13 +7,12 @@
 
         $query = "INSERT INTO temp(name) VALUES('" . $firstname . "')";
         $result = pg_query($query);
-        echo "Id: " . $result;
+        echo "Id: " . $result["id"];
         if (!$result) { 
             $errormessage = pg_last_error(); 
             echo "Error with query: " . $errormessage; 
             exit(); 
         } 
-        printf ("These values were inserted into the database - %s %s %s", $firstname, $surname, $emailaddress); 
         pg_close(); 
         ?> 
     </body> 
