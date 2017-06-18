@@ -7,7 +7,8 @@
 
         $query = "INSERT INTO temp(name) VALUES('" . $name . "')";
         $result = pg_query($query);
-        $novoId = pg_fetch_result($result, 0, 0);
+        $row = pg_fetch_array($result, 0);
+        $novoId = $row["id"];
         echo "Id: " . $novoId;
         if (!$result) { 
             $errormessage = pg_last_error(); 
