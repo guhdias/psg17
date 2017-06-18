@@ -7,7 +7,8 @@
 
         $query = "INSERT INTO temp(name) VALUES('" . $firstname . "')";
         $result = pg_query($query);
-        echo "Id: " . $result["id"];
+        $row = $result->fetch_assoc();
+        echo "Id: " . $row["id"];
         if (!$result) { 
             $errormessage = pg_last_error(); 
             echo "Error with query: " . $errormessage; 
