@@ -5,10 +5,9 @@
 
         $name = pg_escape_string($_POST['name']); 
 
-        $query = "INSERT INTO temp(name) VALUES('" . $name . "')";
+        $query = "INSERT INTO temp(name) VALUES('" . $name . "') RETURNING id";
         $result = pg_query($query);
-        $row = pg_fetch_array($result, 0);
-        $novoId = $row["id"];
+        $novoId = pg_fetch_result($result, 0, 0);
         echo "Id: " . $novoId;
         if (!$result) { 
             $errormessage = pg_last_error(); 
