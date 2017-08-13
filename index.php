@@ -14,7 +14,7 @@
     <body>
         <div class="page">
 		<div class="form">
-			<form class="demo-form" action="page1.php" method="post">
+			<form action="page1.php" method="post">
 				<p class="titulo">Testes CAPTCHA em celulares</p>
 				<br>
 				
