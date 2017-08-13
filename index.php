@@ -16,7 +16,7 @@
 		<div class="form">
 			<form action="page1.php" method="post">
 				<p class="titulo">Testes CAPTCHA em celulares</p>
-				<br>
+				
 				
 				<p class="corpo">Testes de CAPTCHA, utilizados por um sistema para identificar se
 					o usuário é um computador ou um ser humano, são mundialmente
@@ -31,8 +31,7 @@
 
 
 				<p class="corpo">Esta avaliação tem duração estimada de X minutos.</p>
-				<br>
-				<br>
+
 				<button>Prosseguir</button>
 			</form>
 		</div>
