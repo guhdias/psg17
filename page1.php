@@ -29,12 +29,19 @@
 					</tr>
 					<tr>
 						<td class="left">Muito Baixa</td>
-						<td class="center"><input id="expertise" type="range" min="0" max="10" step="2" /></td>
+						<td class="center"><input name="expertise" type="range" min="0" max="10" step="2" /></td>
 						<td class="right">Muito Alta</td>
 					</tr>				
 				</table>
-				<br/>
-				<br/>
+				<table class="radio">
+					<tr>
+						<td colspan=2 class="rotulo">Conhece testes CAPTCHA?	</td>
+					</tr>
+					<tr>
+						<td class="left"><input type="radio" name="conhece" value="sim"> Sim</td>
+						<td class="right"><input type="radio" name="conhece" value="nao"> Não</td>
+					</tr>				
+				</table>
 				<br/>
 				<button>Prosseguir</button>
 			</form>
