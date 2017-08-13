@@ -193,7 +193,6 @@ input[type="radio"]:checked {
   background: #4CAF50;
 }
 input[type="radio"]:checked::before {
-  content: 'X';
   font-size: 26px;
   text-align: center;
 }
