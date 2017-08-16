@@ -11,7 +11,7 @@
     <body>
         <div class="page">
 		<div class="form">
-			<form action="page1.php" method="post">
+			<form action="page1.php" method="post" class="index">
 				<p class="titulo">Testes CAPTCHA em celulares</p>
 				
 				<p class="corpo">Testes de CAPTCHA, utilizados por um sistema para identificar se
