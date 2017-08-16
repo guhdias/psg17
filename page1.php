@@ -4,17 +4,14 @@
 <meta charset="UTF-8">
 <title>Pesquisa testes CAPTCHA</title>
 
-
-
 <link rel="stylesheet" href="css/style.css">
-
 
 </head>
 
 <body>
 	<div class="page">
 		<div class="form">
-			<form>
+			<form action="page2.php" method="post" class="demografia">
 				<input type="text" placeholder="nome" name="nome" />
 				<input type="number" placeholder="idade" name="idade" />
 				<select 	name="sexo">

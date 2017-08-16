@@ -1,27 +1,44 @@
-<html> 
-    <body> 
-    	<?php 
-    	session_start();
-        $db = pg_connect('host=ec2-54-225-182-108.compute-1.amazonaws.com dbname=de9j18h45cq9u5 user=inqlcbeulcqcts password=b38764f23bb9348ca0dced3ff38eb2d381e88e0f3b3a59076a0c345f78d923e3'); 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pesquisa testes CAPTCHA</title>
 
-        $name = pg_escape_string($_POST['name']); 
+<link rel="stylesheet" href="css/style.css">
 
-        $query = "INSERT INTO temp(name) VALUES('" . $name . "') RETURNING id";
-        $result = pg_query($query);
-        $novoId = pg_fetch_result($result, 0, 0);
-        echo "Id: " . $novoId;
-        $_SESSION['formId'] = $novoId;
-        if (!$result) { 
-            $errormessage = pg_last_error(); 
-            echo "Error with query: " . $errormessage; 
-            exit(); 
-        } 
-        pg_close(); 
-        ?> 
-        <form action="page3.php" method="post"> 
-            Novo : <input type="text" name="novoName" size="40" length="40" value="novo"><BR> 
-            <input type="submit" name="submit" value="Submit"> 
-            <input type="reset" name="reset" value="Clear It"> 
-        </form> 
-    </body> 
-</html> 
+</head>
+
+<body>
+	<div class="page">
+		<div class="form">
+			<form action="page2.php" method="post" class="testes">
+				<table class="testes_tabela">
+					<tr>
+						<td colspan=4 class="testes_titulo">Digite o texto abaixo:</td>
+					</tr>
+					<tr>
+						<td colspan=4 class="testes_imagem"><img alt="Captcha Texto 1" src="images/text_captcha/text_captcha.jpg" width=100%></td>
+					</tr>
+					<tr>
+						<td colspan=4 class="testes_resposta"><input type="text" placeholder="texto" name="respTextCaptcha1" /></td>
+					</tr>
+					<tr class="testes_botoes">
+						<td colspan=2 class="testes_pular"><button>Pular</button></td>
+						<td colspan=2 class="testes_enviar"><button>Enviar</button></td>
+					</tr>
+					<tr>
+						<td colspan=4 class="testes_progresso"><img alt="Progresso 1/5" src="https://css-tricks.com/wp-content/uploads/2013/08/reset-progress-bar.png" width=80%></td>
+					</tr>
+					<tr class="testes_abas">
+						<td class="testes_aba1">Tipo 1</td>
+						<td class="testes_aba2">Tipo 2</td>
+						<td class="testes_aba3">Tipo 3</td>
+						<td class="testes_aba4">Tipo 4</td>
+					</tr>
+				</table> 
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

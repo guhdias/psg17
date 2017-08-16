@@ -4,10 +4,7 @@
 <meta charset="UTF-8">
 <title>Pesquisa testes CAPTCHA</title>
 
-
-
 <link rel="stylesheet" href="css/style.css">
-
 
 </head>
 
@@ -16,7 +13,6 @@
 		<div class="form">
 			<form action="page1.php" method="post">
 				<p class="titulo">Testes CAPTCHA em celulares</p>
-				
 				
 				<p class="corpo">Testes de CAPTCHA, utilizados por um sistema para identificar se
 					o usuário é um computador ou um ser humano, são mundialmente
@@ -28,7 +24,6 @@
 				<p class="corpo">Você realizará 4 tipos diferentes de testes, respondendo cada um
 					deles 5 vezes e avaliando cada um deles no final de acordo com sua
 					experiência.</p>
-
 
 				<p class="corpo">Esta avaliação tem duração estimada de X minutos.</p>
 
