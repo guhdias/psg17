@@ -239,7 +239,7 @@ p.corpo {
 
 /***** Testes *****/
 table, td, tr {
-	border: 1px none;
+	border: none;
 }
 
 .testes > .testes_tabela {
@@ -256,17 +256,21 @@ table, td, tr {
 
 .testes_titulo {
 	width: 100%;
-	height: 10%;
+	height: 15%;
+	text-align: center;
+	text-decoration: none;
+	font-size: 56px;
+	font-weight: bold;
 }
 
 .testes_imagem {
 	width: 100%;
-	height: 35%;
+	height: 40%;
 }
 
 .testes_resposta {
 	width: 100%;
-	height: 20%;
+	height: 10%;
 }
 
 .testes_botoes {
@@ -320,19 +324,34 @@ table, td, tr {
 .testes_aba1 {
 	background: #4CAF50;
 	color: #FFFFFF;
+	border-radius: 20px 20px 0px 0px;
 }
 
 .testes_aba2 {
 	background: #ebeceb;
 	color: #000000;
+	border-radius: 20px 20px 0px 0px;
 }
 
 .testes_aba3 {
 	background: #ebeceb;
 	color: #000000;
+	border-radius: 20px 20px 0px 0px;
 }
 
 .testes_aba4 {
 	background: #ebeceb;
 	color: #000000;
+	border-radius: 20px 20px 0px 0px;
+}
+
+.testes_aba_space {
+	background: #FFFFFF;
+	width: 1%;
+}
+
+.teste_texto {
+	width: 100%;
+	border: 3px solid #4CAF50;
+	border-radius: 30px;
 }
