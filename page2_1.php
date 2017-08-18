@@ -20,7 +20,7 @@ function gerarImagem () {
 <body onload="gerarImagem()">
 	<div class="page">
 		<div class="form">
-			<form action="page2.php" method="post" class="testes">
+			<form action="page2_6.php" method="post" class="testes">
 				<table class="testes_tabela">
 					<tr>
 						<td colspan=4 class="testes_titulo">Digite o texto abaixo:</td>

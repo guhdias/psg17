@@ -26,8 +26,6 @@ body {
 	background: -o-linear-gradient(right, #76b852, #8DC26F);
 	background: linear-gradient(to left, #76b852, #8DC26F);
 	font-family: "Roboto", sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 	font-size: 50px;
 }
 
@@ -46,7 +44,6 @@ p.corpo {
 }
 
 .index button {
-	font-family: "Roboto", sans-serif;
 	text-transform: uppercase;
 	outline: 0;
 	background: #4CAF50;
@@ -67,7 +64,6 @@ p.corpo {
 
 /***** Demografia *****/
 .demografia input {
-	font-family: "Roboto", sans-serif;
 	outline: 0;
 	background: #f2f2f2;
 	width: 100%;
@@ -81,7 +77,6 @@ p.corpo {
 
 .demografia select {
 	-webkit-appearance: none !important;
-	font-family: "Roboto", sans-serif;
 	outline: 0;
 	background: #f2f2f2;
 	width: 100%;
@@ -121,7 +116,6 @@ p.corpo {
 }
 
 .demografia button {
-	font-family: "Roboto", sans-serif;
 	text-transform: uppercase;
 	outline: 0;
 	background: #4CAF50;
@@ -281,7 +275,6 @@ p.corpo {
 }
 
 .testes input {
-	font-family: "Roboto", sans-serif;
 	outline: 0;
 	background: #f2f2f2;
 	width: 100%;
@@ -294,7 +287,6 @@ p.corpo {
 }
 
 .testes button {
-	font-family: "Roboto", sans-serif;
 	text-transform: uppercase;
 	outline: 0;
 	background: #4CAF50;
@@ -375,7 +367,6 @@ table, td, tr {
 }
 
 .avaliacao button {
-	font-family: "Roboto", sans-serif;
 	text-transform: uppercase;
 	outline: 0;
 	background: #4CAF50;
