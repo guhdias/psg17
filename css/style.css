@@ -421,8 +421,7 @@ table, td, tr {
 	width: 100%;
 	text-align: left;
 	text-decoration: none;
-	font-size: 36px;
-	font-weight: bold;
+	font-size: 40px;
 	padding: 45px 0 35px 0;
 }
 
@@ -436,7 +435,6 @@ table, td, tr {
 	text-align: center;
 	text-decoration: none;
 	font-size: 22px;
-	font-weight: bold;
 	padding: 15px 0 15px 0;
 	color: #989898;
 	font-style: italic;
@@ -446,8 +444,8 @@ table, td, tr {
 	-webkit-appearance: none !important;
 	appearance: none;
 	margin: 0 40px;
-	width: 50px;
-	height: 50px;
+	width: 70px;
+	height: 70px;
 	background: #eeeeee;
 	box-shadow: inset 0 0 0 .4em white, 0 0 0 .3em;
 	border-radius: 50%;
