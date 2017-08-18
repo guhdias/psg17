@@ -11,7 +11,7 @@
 <body>
 	<div class="page">
 		<div class="form">
-			<form action="page2.php" method="post" class="demografia">
+			<form action="page2_1.php" method="post" class="demografia">
 				<input type="text" placeholder="nome" name="nome" />
 				<input type="number" placeholder="idade" name="idade" />
 				<select 	name="sexo">
