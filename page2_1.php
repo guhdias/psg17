@@ -10,7 +10,7 @@
 function gerarImagem () {
 	var imagemId, imagemSrc;
 	imagemId = Math.floor(Math.random() * 6) + 1;
-	imagemSrc = "images/text_captcha/text_captcha";
+	imagemSrc = "images/text_captcha/1/text_captcha";
 	document.getElementById("text_captcha_img").src=imagemSrc.concat(imagemId,".jpg");
 }
 </script>
