@@ -12,9 +12,11 @@ function gerarImagem () {
 	imagemId = Math.floor(Math.random() * 6) + 1;
 	imagemSrc = "images/text_captcha/1/text_captcha";
 	document.getElementById("text_captcha_img").src=imagemSrc.concat(imagemId,".jpg");
+	imagemId = Math.floor(Math.random() * 4) + 1;
+	imagemSrc = "images/progress_bar_2/progress_bar_2_0";
+	document.getElementById("progress").src=imagemSrc.concat(imagemId,".png");
 }
 </script>
-
 </head>
 
 <body onload="gerarImagem()">
@@ -39,10 +41,7 @@ function gerarImagem () {
 						<td colspan=4 class="testes_progresso"><img alt="Progresso 1/5" src="images/progress_bar/progress_bar_01.png"></td>
 					</tr>
 					<tr class="testes_abas">
-						<td class="testes_aba1">Tipo 1</td>
-						<td class="testes_aba2">Tipo 2</td>
-						<td class="testes_aba3">Tipo 3</td>
-						<td class="testes_aba4">Tipo 4</td>
+						<td colspan=4 class="testes_progresso"><img alt="Teste 1" src="" id="progress"></td>
 					</tr>
 				</table> 
 			</form>
