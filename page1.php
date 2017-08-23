@@ -5,16 +5,49 @@
 <title>Pesquisa testes CAPTCHA</title>
 
 <link rel="stylesheet" href="css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script> 
+	var startTime
+	
+	function start() {
+		startTime = new Date();
+	}
+	
+	function mySubmit() {
+		var endTime = new Date();
+		var timeSpent = (endTime - startTime);
+		document.getElementById("tempo_gasto").value = timeSpent;
+		document.getElementById("demografia").submit();
+     }
+</script>
 
 </head>
 
-<body>
+<body onload="start()">
+    	<?php
+    session_start();
+    $db = pg_connect('host=ec2-54-225-182-108.compute-1.amazonaws.com dbname=de9j18h45cq9u5 user=inqlcbeulcqcts password=b38764f23bb9348ca0dced3ff38eb2d381e88e0f3b3a59076a0c345f78d923e3');
+    
+    $tempo_index = pg_escape_string($_POST['tempo_gasto']);
+    
+    $query = "INSERT INTO avaliacoes(tempo_index) VALUES('" . $tempo_index . "') RETURNING id";
+    $result = pg_query($query);
+    $novoId = pg_fetch_result($result, 0, 0);
+    $_SESSION['formId'] = $novoId;
+    if (! $result) {
+        $errormessage = pg_last_error();
+        echo "Error with query: " . $errormessage;
+        exit();
+    }
+    pg_close();
+    ?> 
 	<div class="page">
 		<div class="form">
-			<form action="page2_1.php" method="post" class="demografia">
+			<form action="page2_1.php" method="post" class="demografia" id="demografia">
 				<input type="text" placeholder="nome" name="nome" />
 				<input type="number" placeholder="idade" name="idade" />
-				<select 	name="sexo">
+				<select name="sexo">
 					<option value="" disabled selected>sexo</option>
 					<option value="masculino">masculino</option>
 					<option value="feminino">feminino</option>
@@ -22,25 +55,29 @@
 				</select>
 				<table class="slider">
 					<tr>
-						<td colspan=3 class="rotulo">Expertise com celulares:	</td>
+						<td colspan=3 class="rotulo">Expertise com celulares:</td>
 					</tr>
 					<tr>
 						<td class="left">Muito Baixa</td>
-						<td class="center"><input name="expertise" type="range" min="0" max="10" step="2" /></td>
+						<td class="center"><input name="expertise" type="range" min="0"
+							max="10" step="2" /></td>
 						<td class="right">Muito Alta</td>
-					</tr>				
+					</tr>
 				</table>
 				<table class="radio">
 					<tr>
-						<td colspan=2 class="rotulo">Conhece testes CAPTCHA?	</td>
+						<td colspan=2 class="rotulo">Conhece testes CAPTCHA?</td>
 					</tr>
 					<tr>
-						<td class="left"><input type="radio" name="conhece" value="sim"> Sim</td>
-						<td class="right"><input type="radio" name="conhece" value="nao"> Não</td>
-					</tr>				
+						<td class="left"><input type="radio" name="conhece" value="sim">
+							Sim</td>
+						<td class="right"><input type="radio" name="conhece" value="nao">
+							Não</td>
+					</tr>
 				</table>
-				<br/>
-				<button>Prosseguir</button>
+				<br />
+				<input type="hidden" id="tempo_gasto" name="tempo_gasto" value="" />
+				<button type="button" onclick="mySubmit();">Prosseguir</button>
 			</form>
 		</div>
 	</div>

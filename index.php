@@ -1,36 +1,56 @@
 <!DOCTYPE html>
-<html >
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Pesquisa testes CAPTCHA</title>
 
 <link rel="stylesheet" href="css/style.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script> 
+	var startTime
+	
+	function start() {
+		startTime = new Date();
+	}
+	
+	function mySubmit() {
+		var endTime = new Date();
+		var timeSpent = (endTime - startTime);
+		document.getElementById("tempo_gasto").value = timeSpent;
+		document.getElementById("index").submit();
+     }
+</script>
 
 </head>
 
-    <body>
-        <div class="page">
+<body onload="start()">
+	<div class="page">
 		<div class="form">
-			<form action="page1.php" method="post" class="index">
+			<form action="page1.php" method="post" class="index" id="index">
 				<p class="titulo">Testes CAPTCHA em celulares</p>
-				
-				<p class="corpo">Testes de CAPTCHA, utilizados por um sistema para identificar se
-					o usuário é um computador ou um ser humano, são mundialmente
-					utilizados nos dias de hoje.</p>
 
-				<p class="corpo">Este estudo visa identificar a implementação de um teste CAPTCHA
-					em celulares que proporciona a melhor experiência para o usuário.</p>
+				<p class="corpo">Testes de CAPTCHA, utilizados por um sistema para
+					identificar se o usuário é um computador ou um ser humano, são
+					mundialmente utilizados nos dias de hoje.</p>
 
-				<p class="corpo">Você realizará 4 tipos diferentes de testes, respondendo cada um
-					deles 5 vezes e avaliando cada um deles no final de acordo com sua
-					experiência.</p>
+				<p class="corpo">Este estudo visa identificar a implementação de um
+					teste CAPTCHA em celulares que proporciona a melhor experiência
+					para o usuário.</p>
+
+				<p class="corpo">Você realizará 4 tipos diferentes de testes,
+					respondendo cada um deles 5 vezes e avaliando cada um deles no
+					final de acordo com sua experiência.</p>
 
 				<p class="corpo">Esta avaliação tem duração estimada de X minutos.</p>
 
-				<button>Prosseguir</button>
+				<input type="hidden" id="tempo_gasto" name="tempo_gasto" value="" />
+
+				<button type="button" onclick="mySubmit();">Prosseguir</button>
 			</form>
 		</div>
 	</div>
-    
-    </body>
+
+</body>
 </html>

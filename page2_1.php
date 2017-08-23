@@ -7,22 +7,60 @@
 <link rel="stylesheet" href="css/style.css">
 
 <script>
+var startTime
+
 function gerarImagem () {
+	startTime = new Date();
 	var imagemId, imagemSrc;
 	imagemId = Math.floor(Math.random() * 6) + 1;
 	imagemSrc = "images/text_captcha/1/text_captcha";
 	document.getElementById("text_captcha_img").src=imagemSrc.concat(imagemId,".jpg");
-	imagemId = Math.floor(Math.random() * 4) + 1;
-	imagemSrc = "images/progress_bar_2/progress_bar_2_0";
-	document.getElementById("progress").src=imagemSrc.concat(imagemId,".png");
 }
+
+function mySubmit() {
+	var endTime = new Date();
+	var timeSpent = (endTime - startTime);
+	document.getElementById("tempo_gasto").value = timeSpent;
+	document.getElementById("pulou").value = 0;
+	document.getElementById("testes").submit();
+ }
+
+function pular() {
+	var endTime = new Date();
+	var timeSpent = (endTime - startTime);
+	document.getElementById("tempo_gasto").value = timeSpent;
+	document.getElementById("pulou").value = 1;
+	document.getElementById("testes").submit();
+ }
 </script>
 </head>
 
 <body onload="gerarImagem()">
+    	<?php
+    session_start();
+    $formId = $_SESSION['formId'];
+    
+    $db = pg_connect('host=ec2-54-225-182-108.compute-1.amazonaws.com dbname=de9j18h45cq9u5 user=inqlcbeulcqcts password=b38764f23bb9348ca0dced3ff38eb2d381e88e0f3b3a59076a0c345f78d923e3');
+    
+    $nome = pg_escape_string($_POST['nome']);
+    $idade = pg_escape_string($_POST['idade']);
+    $sexo = pg_escape_string($_POST['sexo']);
+    $expertise = pg_escape_string($_POST['expertise']);
+    $conhece = pg_escape_string($_POST['conhece']);
+    $tempo_demografia = pg_escape_string($_POST['tempo_gasto']);
+    
+    $query = "UPDATE avaliacoes SET nome='" . $nome . "', idade='" . $idade . "', sexo='" . $sexo . "', expertise='" . $expertise . "', conhece='" . $conhece . "', tempo_demografia='" . $tempo_demografia . "' WHERE id='" . $formId . "';";
+    $result = pg_query($query);
+    if (! $result) {
+        $errormessage = pg_last_error();
+        echo "Error with query: " . $errormessage;
+        exit();
+    }
+    pg_close();
+    ?> 
 	<div class="page">
 		<div class="form">
-			<form action="page2_6.php" method="post" class="testes">
+			<form action="page2_6.php" method="post" class="testes" id="testes">
 				<table class="testes_tabela">
 					<tr>
 						<td colspan=4 class="testes_titulo">Digite o texto abaixo:</td>
@@ -34,16 +72,18 @@ function gerarImagem () {
 						<td colspan=4 class="testes_resposta"><input type="text" placeholder="texto" name="respTextCaptcha1" /></td>
 					</tr>
 					<tr class="testes_botoes">
-						<td colspan=2 class="testes_pular"><button>Pular</button></td>
-						<td colspan=2 class="testes_enviar"><button>Enviar</button></td>
+						<td colspan=2 class="testes_pular"><button type="button" onclick="pular();">Pular</button></td>
+						<td colspan=2 class="testes_enviar"><button type="button" onclick="mySubmit();">Enviar</button></td>
 					</tr>
 					<tr>
 						<td colspan=4 class="testes_progresso"><img alt="Progresso 1/5" src="images/progress_bar/progress_bar_01.png"></td>
 					</tr>
 					<tr class="testes_abas">
-						<td colspan=4 class="testes_progresso"><img alt="Teste 1" src="" id="progress"></td>
+						<td colspan=4 class="testes_progresso"><img alt="Teste 1" src="images/progress_bar_2/progress_bar_2_01.png"></td>
 					</tr>
 				</table> 
+				<input type="hidden" id="tempo_gasto" name="tempo_gasto" value="" />
+				<input type="hidden" id="pulou" name="pulou" value="" />
 			</form>
 		</div>
 	</div>
