@@ -15,11 +15,43 @@
 	}
 	
 	function mySubmit() {
-		var endTime = new Date();
-		var timeSpent = (endTime - startTime);
-		document.getElementById("tempo_gasto").value = timeSpent;
-		document.getElementById("demografia").submit();
+		if (validarFormulario() == true) {
+			var endTime = new Date();
+			var timeSpent = (endTime - startTime);
+			document.getElementById("tempo_gasto").value = timeSpent;
+			document.getElementById("demografia").submit();
+		}
      }
+
+    function validarFormulario() {
+		var temp
+
+		temp = document.forms["demografia"]["nome"].value;
+		if (temp == "") {
+			alert("Por favor preencher o nome.");
+			return false;
+    		}
+
+		temp = document.forms["demografia"]["idade"].value;
+		if (temp == "") {
+			alert("Por favor preencher a idade.");
+			return false;
+    		}
+
+		temp = document.forms["demografia"]["sexo"].value;
+		if (temp == "") {
+			alert("Por favor preencher o sexo.");
+			return false;
+    		}
+
+		temp = document.forms["demografia"]["conhece"];
+		if (!(temp[0].checked) && !(temp[1].checked)) {
+			alert("Por favor preencher se conhece testes CAPTCHA.");
+			return false;
+    		}
+
+		return true;
+    }
 </script>
 
 </head>
@@ -60,7 +92,7 @@
 					<tr>
 						<td class="left">Muito Baixa</td>
 						<td class="center"><input name="expertise" type="range" min="0"
-							max="10" step="2" /></td>
+							max="8" step="2" /></td>
 						<td class="right">Muito Alta</td>
 					</tr>
 				</table>
