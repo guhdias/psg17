@@ -11,10 +11,10 @@ var startTime
 
 function gerarImagem () {
 	var imagemId, imagemSrc;
-	imagemId = Math.floor(Math.random() * 6) + 1;
-	imagemSrc = "images/text_captcha/1/text_captcha";
-	//imagemId = Math.floor(Math.random() * 6) + 7;
-	//imagemSrc = "images/text_captcha/2/text_captcha";
+	//imagemId = Math.floor(Math.random() * 6) + 1;
+	//imagemSrc = "images/text_captcha/1/text_captcha";
+	imagemId = Math.floor(Math.random() * 6) + 7;
+	imagemSrc = "images/text_captcha/2/text_captcha";
 	//imagemId = Math.floor(Math.random() * 6) + 13;
 	//imagemSrc = "images/text_captcha/3/text_captcha";
 	//imagemId = Math.floor(Math.random() * 6) + 19;
@@ -53,14 +53,12 @@ function pular() {
     
     $db = pg_connect('host=ec2-54-225-182-108.compute-1.amazonaws.com dbname=de9j18h45cq9u5 user=inqlcbeulcqcts password=b38764f23bb9348ca0dced3ff38eb2d381e88e0f3b3a59076a0c345f78d923e3');
     
-    $nome = pg_escape_string($_POST['nome']);
-    $idade = pg_escape_string($_POST['idade']);
-    $sexo = pg_escape_string($_POST['sexo']);
-    $expertise = pg_escape_string($_POST['expertise']);
-    $conhece = pg_escape_string($_POST['conhece']);
-    $tempo_demografia = pg_escape_string($_POST['tempo_gasto']);
+    $imagem = pg_escape_string($_POST['imagem_id']);
+    $resposta = pg_escape_string($_POST['respTextCaptcha']);
+    $pulou = pg_escape_string($_POST['pulou']);
+    $tempo_gasto = pg_escape_string($_POST['tempo_gasto']);
     
-    $query = "UPDATE avaliacoes SET nome='" . $nome . "', idade='" . $idade . "', sexo='" . $sexo . "', expertise='" . $expertise . "', conhece='" . $conhece . "', tempo_demografia='" . $tempo_demografia . "' WHERE id='" . $formId . "';";
+    $query = "UPDATE avaliacoes SET imagem_1_1='" . $imagem . "', resposta_1_1='" . $resposta . "', pulou_1_1='" . $pulou . "', tempo_1_1='" . $tempo_gasto . "' WHERE id='" . $formId . "';";
     $result = pg_query($query);
     if (! $result) {
         $errormessage = pg_last_error();
@@ -72,7 +70,7 @@ function pular() {
 
 	<div class="page">
 		<div class="form">
-			<form action="page2_2.php" method="post" class="testes" id="testes">
+			<form action="page2_3.php" method="post" class="testes" id="testes">
 				<table class="testes_tabela">
 					<tr>
 						<td colspan=4 class="testes_titulo">Digite o texto abaixo:</td>
@@ -88,7 +86,7 @@ function pular() {
 						<td colspan=2 class="testes_enviar"><button type="button" onclick="mySubmit();">Enviar</button></td>
 					</tr>
 					<tr>
-						<td colspan=4 class="testes_progresso"><img alt="Progresso 1/5" src="images/progress_bar/progress_bar_01.png"></td>
+						<td colspan=4 class="testes_progresso"><img alt="Progresso 2/5" src="images/progress_bar/progress_bar_02.png"></td>
 					</tr>
 					<tr class="testes_abas">
 						<td colspan=4 class="testes_progresso"><img alt="Teste 1" src="images/progress_bar_2/progress_bar_2_01.png"></td>
