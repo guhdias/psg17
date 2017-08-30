@@ -62,8 +62,9 @@
     $db = pg_connect('host=ec2-54-225-182-108.compute-1.amazonaws.com dbname=de9j18h45cq9u5 user=inqlcbeulcqcts password=b38764f23bb9348ca0dced3ff38eb2d381e88e0f3b3a59076a0c345f78d923e3');
     
     $tempo_index = pg_escape_string($_POST['tempo_gasto']);
+    $data_hora = pg_escape_string($_POST['data_hora']);
     
-    $query = "INSERT INTO avaliacoes(tempo_index) VALUES('" . $tempo_index . "') RETURNING id";
+    $query = "INSERT INTO avaliacoes(tempo_index, data_hora) VALUES('" . $tempo_index . "','" . $data_hora . "') RETURNING id";
     $result = pg_query($query);
     $novoId = pg_fetch_result($result, 0, 0);
     $_SESSION['formId'] = $novoId;

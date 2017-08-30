@@ -1,3 +1,12 @@
+<?php
+require_once 'mobile_detect/Mobile_Detect.php';
+$detect = new Mobile_Detect;
+if (!($detect->isMobile())) {
+    //header("Location: http://www.google.com.br/");
+    //exit();
+    echo "NOT MOBILE!!";
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,8 +14,7 @@
 <title>Pesquisa testes CAPTCHA</title>
 
 <link rel="stylesheet" href="css/style.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script> 
 	var startTime
@@ -19,6 +27,10 @@
 		var endTime = new Date();
 		var timeSpent = (endTime - startTime);
 		document.getElementById("tempo_gasto").value = timeSpent;
+		var date = endTime.getDate()+'/'+(endTime.getMonth()+1)+'/'+endTime.getFullYear();
+		var time = endTime.getHours() + ":" + endTime.getMinutes() + ":" + endTime.getSeconds();
+		var dateTime = date+' - '+time;
+		document.getElementById("data_hora").value = dateTime;
 		document.getElementById("index").submit();
      }
 </script>
@@ -46,6 +58,7 @@
 				<p class="corpo">Esta avaliação tem duração estimada de X minutos.</p>
 
 				<input type="hidden" id="tempo_gasto" name="tempo_gasto" value="" />
+				<input type="hidden" id="data_hora" name="data_hora" value="" />
 
 				<button type="button" onclick="mySubmit();">Prosseguir</button>
 			</form>

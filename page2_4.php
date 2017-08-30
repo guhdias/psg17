@@ -27,6 +27,14 @@ function gerarImagem () {
 }
 
 function mySubmit() {
+	var temp
+
+	temp = document.forms["testes"]["respTextCaptcha"].value;
+	if (temp == "") {
+		alert("Se estiver com dificuldades para responder, utilize o botão PULAR.");
+		return false;
+	}
+	
 	var endTime = new Date();
 	var timeSpent = (endTime - startTime);
 	document.getElementById("tempo_gasto").value = timeSpent;
