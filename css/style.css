@@ -326,11 +326,37 @@ p.corpo {
 	border-radius: 30px;
 }
 
-/***** Avaliação *****/
+/***** Teste Imagem *****/
 table, td, tr {
 	border: none;
 }
 
+.testes_icones_td {
+	width: 25%;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.testes_icones_tr {
+	width: 100%;
+	height: 25%;
+}
+
+.testes_icones_imagens {
+	width: 100px;
+	height: 100px;
+	padding: 20px;
+}
+
+.testes_icones_imagens_selecionada {
+	width: 100px;
+	height: 100px;
+	padding: 20px;
+	border: 6px solid #4CAF50;
+	border-radius: 30px;
+}
+
+/***** Avaliação *****/
 .avaliacao>.avaliacao_tabela {
 	width: 100%;
 	border-collapse: collapse;
