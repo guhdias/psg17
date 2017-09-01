@@ -8,10 +8,21 @@
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script>
-var startTime
+var startTime, random
 
 function gerarImagem () {
 	startTime = new Date();
+	
+	var icones = document.getElementsByName("testes_icone");
+	var random2
+	random = Math.floor(Math.random() * 8);
+	icones[random].src = "images/image_captcha_resized/48.png";
+	for (var i = 0; i < icones.length; i++) {
+		if (i != random) {
+			random2 = Math.floor(Math.random() * 47) + 1;
+			icones[i].src = "images/image_captcha_resized/" + random2 + ".png";
+		}
+	}
 }
 
 function mySubmit() {
@@ -27,7 +38,7 @@ function mySubmit() {
 	var timeSpent = (endTime - startTime);
 	document.getElementById("tempo_gasto").value = timeSpent;
 	document.getElementById("pulou").value = 0;
-	document.getElementById("image_correta").value = " ";
+	document.getElementById("image_correta").value = random + 1;
 	document.getElementById("testes").submit();
  }
 
@@ -36,7 +47,7 @@ function pular() {
 	var timeSpent = (endTime - startTime);
 	document.getElementById("tempo_gasto").value = timeSpent;
 	document.getElementById("pulou").value = 1;
-	document.getElementById("image_correta").value = " ";
+	document.getElementById("image_correta").value = random + 1;
 	document.getElementById("testes").submit();
  }
 
@@ -52,7 +63,28 @@ function selecionarImagem(novaImagem) {
 </head>
 
 <body onload="gerarImagem()">
-    	
+    	<?php
+    session_start();
+    $formId = $_SESSION['formId'];
+    
+    $db = pg_connect('host=ec2-54-225-182-108.compute-1.amazonaws.com dbname=de9j18h45cq9u5 user=inqlcbeulcqcts password=b38764f23bb9348ca0dced3ff38eb2d381e88e0f3b3a59076a0c345f78d923e3');
+    
+    $avalia1 = pg_escape_string($_POST['avalia1']);
+    $avalia2 = pg_escape_string($_POST['avalia2']);
+    $avalia3 = pg_escape_string($_POST['avalia3']);
+    $avalia4 = pg_escape_string($_POST['avalia4']);
+    $avalia5 = pg_escape_string($_POST['avalia5']);
+    $avalia6 = pg_escape_string($_POST['avalia6']);
+    
+    $query = "UPDATE avaliacoes SET avalia1_1='" . $avalia1 . "', avalia2_1='" . $avalia2 . "', avalia3_1='" . $avalia3 . "', avalia4_1='" . $avalia4 . "', avalia5_1='" . $avalia5 . "', avalia6_1='" . $avalia6 . "' WHERE id='" . $formId . "';";
+    $result = pg_query($query);
+    if (! $result) {
+        $errormessage = pg_last_error();
+        echo "Error with query: " . $errormessage;
+        exit();
+    }
+    pg_close();
+    ?> 
 	<div class="page">
 		<div class="form">
 			<form action="page2_2.php" method="post" class="testes" id="testes">
@@ -61,16 +93,16 @@ function selecionarImagem(novaImagem) {
 						<td colspan=4 class="testes_titulo">Selecione o avião:</td>
 					</tr>
 					<tr class="testes_icones_tr">
-						<td class="testes_icones_td"><img alt="1" src="images/image_captcha/png/headphones.png" class="testes_icones_imagens" onClick="selecionarImagem(this);"></td>
-						<td class="testes_icones_td"><img alt="2" src="images/image_captcha/png/cloud.png" class="testes_icones_imagens" onClick="selecionarImagem(this);"></td>
-						<td class="testes_icones_td"><img alt="3" src="images/image_captcha/png/airplane.png" class="testes_icones_imagens" onClick="selecionarImagem(this);"></td>
-						<td class="testes_icones_td"><img alt="4" src="images/image_captcha/png/edit.png" class="testes_icones_imagens" onClick="selecionarImagem(this);"></td>
+						<td class="testes_icones_td"><img alt="1" src="" name="testes_icone" class="testes_icones_imagens" onClick="selecionarImagem(this);"></td>
+						<td class="testes_icones_td"><img alt="2" src="" name="testes_icone" class="testes_icones_imagens" onClick="selecionarImagem(this);"></td>
+						<td class="testes_icones_td"><img alt="3" src="" name="testes_icone" class="testes_icones_imagens" onClick="selecionarImagem(this);"></td>
+						<td class="testes_icones_td"><img alt="4" src="" name="testes_icone" class="testes_icones_imagens" onClick="selecionarImagem(this);"></td>
 					</tr>
 					<tr class="testes_icones_tr">
-						<td class="testes_icones_td"><img alt="5" src="images/image_captcha/png/gift.png" class="testes_icones_imagens" onClick="selecionarImagem(this);"></td>
-						<td class="testes_icones_td"><img alt="6" src="images/image_captcha/png/hold.png" class="testes_icones_imagens" onClick="selecionarImagem(this);"></td>
-						<td class="testes_icones_td"><img alt="7" src="images/image_captcha/png/home-2.png" class="testes_icones_imagens" onClick="selecionarImagem(this);"></td>
-						<td class="testes_icones_td"><img alt="8" src="images/image_captcha/png/idea.png" class="testes_icones_imagens" onClick="selecionarImagem(this);"></td>
+						<td class="testes_icones_td"><img alt="5" src="" name="testes_icone" class="testes_icones_imagens" onClick="selecionarImagem(this);"></td>
+						<td class="testes_icones_td"><img alt="6" src="" name="testes_icone" class="testes_icones_imagens" onClick="selecionarImagem(this);"></td>
+						<td class="testes_icones_td"><img alt="7" src="" name="testes_icone" class="testes_icones_imagens" onClick="selecionarImagem(this);"></td>
+						<td class="testes_icones_td"><img alt="8" src="" name="testes_icone" class="testes_icones_imagens" onClick="selecionarImagem(this);"></td>
 					</tr>
 					<tr class="testes_botoes">
 						<td colspan=2 class="testes_pular"><button type="button" onclick="pular();">Pular</button></td>
