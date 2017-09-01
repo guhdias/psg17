@@ -76,7 +76,7 @@ function selecionarImagem(novaImagem) {
     $avalia5 = pg_escape_string($_POST['avalia5']);
     $avalia6 = pg_escape_string($_POST['avalia6']);
     
-    $query = "UPDATE avaliacoes SET avalia1_1='" . $avalia1 . "', avalia2_1='" . $avalia2 . "', avalia3_1='" . $avalia3 . "', avalia4_1='" . $avalia4 . "', avalia5_1='" . $avalia5 . "', avalia6_1='" . $avalia6 . "' WHERE id='" . $formId . "';";
+    $query = "UPDATE avaliacoes SET avalia1_2='" . $avalia1 . "', avalia2_2='" . $avalia2 . "', avalia3_2='" . $avalia3 . "', avalia4_2='" . $avalia4 . "', avalia5_2='" . $avalia5 . "', avalia6_2='" . $avalia6 . "' WHERE id='" . $formId . "';";
     $result = pg_query($query);
     if (! $result) {
         $errormessage = pg_last_error();

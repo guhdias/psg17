@@ -16,7 +16,7 @@ function gerarImagem () {
 	var icones = document.getElementsByName("testes_icone");
 	var random2
 	random = Math.floor(Math.random() * 8);
-	icones[random].src = "images/image_captcha_resized/48.png";
+	icones[random].src = "images/image_captcha_resized/51.png";
 	for (var i = 0; i < icones.length; i++) {
 		if (i != random) {
 			random2 = Math.floor(Math.random() * 47) + 1;
@@ -69,14 +69,12 @@ function selecionarImagem(novaImagem) {
     
     $db = pg_connect('host=ec2-54-225-182-108.compute-1.amazonaws.com dbname=de9j18h45cq9u5 user=inqlcbeulcqcts password=b38764f23bb9348ca0dced3ff38eb2d381e88e0f3b3a59076a0c345f78d923e3');
     
-    $avalia1 = pg_escape_string($_POST['avalia1']);
-    $avalia2 = pg_escape_string($_POST['avalia2']);
-    $avalia3 = pg_escape_string($_POST['avalia3']);
-    $avalia4 = pg_escape_string($_POST['avalia4']);
-    $avalia5 = pg_escape_string($_POST['avalia5']);
-    $avalia6 = pg_escape_string($_POST['avalia6']);
+    $correta = pg_escape_string($_POST['image_correta']);
+    $selecionada = pg_escape_string($_POST['image_selecionada']);
+    $pulou = pg_escape_string($_POST['pulou']);
+    $tempo_gasto = pg_escape_string($_POST['tempo_gasto']);
     
-    $query = "UPDATE avaliacoes SET avalia1_1='" . $avalia1 . "', avalia2_1='" . $avalia2 . "', avalia3_1='" . $avalia3 . "', avalia4_1='" . $avalia4 . "', avalia5_1='" . $avalia5 . "', avalia6_1='" . $avalia6 . "' WHERE id='" . $formId . "';";
+    $query = "UPDATE avaliacoes SET correta_2_3='" . $correta . "', selecionada_2_3='" . $selecionada . "', pulou_2_3='" . $pulou . "', tempo_2_3='" . $tempo_gasto . "' WHERE id='" . $formId . "';";
     $result = pg_query($query);
     if (! $result) {
         $errormessage = pg_last_error();
@@ -87,10 +85,10 @@ function selecionarImagem(novaImagem) {
     ?> 
 	<div class="page">
 		<div class="form">
-			<form action="page3_2.php" method="post" class="testes" id="testes">
+			<form action="page3_5.php" method="post" class="testes" id="testes">
 				<table class="testes_tabela">
 					<tr>
-						<td colspan=4 class="testes_titulo">Selecione o avião:</td>
+						<td colspan=4 class="testes_titulo">Selecione o diamante:</td>
 					</tr>
 					<tr class="testes_icones_tr">
 						<td class="testes_icones_td"><img alt="1" src="" name="testes_icone" class="testes_icones_imagens" onClick="selecionarImagem(this);"></td>
@@ -109,7 +107,7 @@ function selecionarImagem(novaImagem) {
 						<td colspan=2 class="testes_enviar"><button type="button" onclick="mySubmit();">Enviar</button></td>
 					</tr>
 					<tr>
-						<td colspan=4 class="testes_progresso"><img alt="Progresso 1/5" src="images/progress_bar/progress_bar_01.png"></td>
+						<td colspan=4 class="testes_progresso"><img alt="Progresso 4/5" src="images/progress_bar/progress_bar_04.png"></td>
 					</tr>
 					<tr class="testes_abas">
 						<td colspan=4 class="testes_progresso"><img alt="Teste 2" src="images/progress_bar_2/progress_bar_2_02.png"></td>
