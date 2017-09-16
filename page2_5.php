@@ -87,7 +87,7 @@ function pular() {
 						<td colspan=4 class="testes_imagem"><img alt="Captcha Texto" src="" class="teste_texto" id="text_captcha_img"></td>
 					</tr>
 					<tr>
-						<td colspan=4 class="testes_resposta"><input type="text" placeholder="texto" name="respTextCaptcha" id="respTextCaptcha" /></td>
+						<td colspan=4 class="testes_resposta"><input  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"  type="text" placeholder="texto" name="respTextCaptcha" id="respTextCaptcha" /></td>
 					</tr>
 					<tr class="testes_botoes">
 						<td colspan=2 class="testes_pular"><button type="button" onclick="pular();">Pular</button></td>
