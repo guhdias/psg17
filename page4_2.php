@@ -58,7 +58,7 @@ function gerarImagem () {
 		
 		
 	} else {
-  	alert("Ops! Seu dispositivo não é compatível com este teste, irei te direcionar ao próximo :)");
+  	alert("Ops! Seu dispositivo não é compatível com este teste.");
   	// REDIRECIONAR PARA O PROXIMO TESTE E PULAR TODAS AS PROXIMAS TENTATIVAS.
 	} 
 }
@@ -67,7 +67,7 @@ function mySubmit() {
 	var temp
 
 	temp = document.forms["testes"]["flag_CAPPCHA"].value;
-	if (temp < 3) {
+	if (temp<3) {
 		alert("Se estiver com dificuldades, utilize o botão PULAR.");
 		return false;
 	}
@@ -97,14 +97,11 @@ function pular() {
     
     $db = pg_connect('host=ec2-54-225-182-108.compute-1.amazonaws.com dbname=de9j18h45cq9u5 user=inqlcbeulcqcts password=b38764f23bb9348ca0dced3ff38eb2d381e88e0f3b3a59076a0c345f78d923e3');
     
-    $avalia1 = pg_escape_string($_POST['avalia1']);
-    $avalia2 = pg_escape_string($_POST['avalia2']);
-    $avalia3 = pg_escape_string($_POST['avalia3']);
-    $avalia4 = pg_escape_string($_POST['avalia4']);
-    $avalia5 = pg_escape_string($_POST['avalia5']);
-    $avalia6 = pg_escape_string($_POST['avalia6']);
+    $flag = pg_escape_string($_POST['flag_CAPPCHA']);
+    $pulou = pg_escape_string($_POST['pulou']);
+    $tempo_gasto = pg_escape_string($_POST['tempo_gasto']);
     
-    $query = "UPDATE avaliacoes SET avalia1_2='" . $avalia1 . "', avalia2_2='" . $avalia2 . "', avalia3_2='" . $avalia3 . "', avalia4_2='" . $avalia4 . "', avalia5_2='" . $avalia5 . "', avalia6_2='" . $avalia6 . "' WHERE id='" . $formId . "';";
+    $query = "UPDATE avaliacoes SET flag_3_1='" . $flag . "', pulou_3_1='" . $pulou . "', tempo_3_1='" . $tempo_gasto . "' WHERE id='" . $formId . "';";
     $result = pg_query($query);
     if (! $result) {
         $errormessage = pg_last_error();
@@ -115,7 +112,7 @@ function pular() {
     ?> 
 	<div class="page">
 		<div class="form">
-			<form action="page4_2.php" method="post" class="testes" id="testes">
+			<form action="page4_3.php" method="post" class="testes" id="testes">
 				<table class="testes_tabela">
 					<tr>
 						<td colspan=4 class="testes_titulo">Movimente seu celular conforme abaixo:</td>
@@ -143,5 +140,6 @@ function pular() {
 			</form>
 		</div>
 	</div>
+
 </body>
 </html>
