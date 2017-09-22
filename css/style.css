@@ -327,7 +327,6 @@ p.corpo {
 }
 
 /***** Teste Imagem *****/
-
 .testes_icones_td {
 	width: 25%;
 	text-align: center;
@@ -354,10 +353,6 @@ p.corpo {
 }
 
 /***** Teste CAPPCHA *****/
-table, td, tr {
-	border: none;
-}
-
 .testes_CAPPCHA_tr {
 	width: 100%;
 	height: 35%;
@@ -384,6 +379,66 @@ table, td, tr {
 	font-weight: bold;
 }
 
+/***** Teste GISCHA *****/
+table, td, tr {
+	border: none;
+}
+
+.testes_GISCHA_td {
+	width: 25%;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.testes_GISCHA_tr {
+	width: 100%;
+	height: 15%;
+}
+
+.testes_GISCHA_legenda_tr {
+	width: 100%;
+	height: 10%;
+}
+
+.testes_GISCHA_legenda_td {
+	width: 25%;
+	text-align: center;
+	vertical-align: top;
+	text-decoration: none;
+	font-size: 66px;
+	font-weight: bold;
+	color: #000000;
+}
+
+.testes_GISCHA_imagens {
+	width: 100px;
+	height: 100px;
+	padding: 0;
+}
+
+.testes_GISCHA_imagens_selecionada {
+	width: 100px;
+	height: 100px;
+	padding: 0;
+}
+
+.testes_GISCHA_titulo1 {
+	width: 100%;
+	height: 10%;
+	text-align: center;
+	text-decoration: none;
+	font-size: 56px;
+	font-weight: bold;
+}
+
+.testes_GISCHA_titulo2 {
+	width: 100%;
+	height: 15%;
+	text-align: center;
+	text-decoration: none;
+	font-size: 56px;
+	font-weight: bold;
+}
 /***** Avaliação *****/
 .avaliacao>.avaliacao_tabela {
 	width: 100%;
