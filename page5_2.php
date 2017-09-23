@@ -122,14 +122,12 @@ function selecionarImagem(novaImagem, posImagem) {
     
     $db = pg_connect('host=ec2-54-225-182-108.compute-1.amazonaws.com dbname=de9j18h45cq9u5 user=inqlcbeulcqcts password=b38764f23bb9348ca0dced3ff38eb2d381e88e0f3b3a59076a0c345f78d923e3');
     
-    $avalia1 = pg_escape_string($_POST['avalia1']);
-    $avalia2 = pg_escape_string($_POST['avalia2']);
-    $avalia3 = pg_escape_string($_POST['avalia3']);
-    $avalia4 = pg_escape_string($_POST['avalia4']);
-    $avalia5 = pg_escape_string($_POST['avalia5']);
-    $avalia6 = pg_escape_string($_POST['avalia6']);
+    $correta = pg_escape_string($_POST['ordem_correta']);
+    $selecionada = pg_escape_string($_POST['ordem_selecionada']);
+    $pulou = pg_escape_string($_POST['pulou']);
+    $tempo_gasto = pg_escape_string($_POST['tempo_gasto']);
     
-    $query = "UPDATE avaliacoes SET avalia1_3='" . $avalia1 . "', avalia2_3='" . $avalia2 . "', avalia3_3='" . $avalia3 . "', avalia4_3='" . $avalia4 . "', avalia5_3='" . $avalia5 . "', avalia6_3='" . $avalia6 . "' WHERE id='" . $formId . "';";
+    $query = "UPDATE avaliacoes SET correta_4_1='" . $correta . "', selecionada_4_1='" . $selecionada . "', pulou_4_1='" . $pulou . "', tempo_4_1='" . $tempo_gasto . "' WHERE id='" . $formId . "';";
     $result = pg_query($query);
     if (! $result) {
         $errormessage = pg_last_error();
@@ -140,7 +138,7 @@ function selecionarImagem(novaImagem, posImagem) {
     ?> 
 	<div class="page">
 		<div class="form">
-			<form action="page5_2.php" method="post" class="testes" id="testes">
+			<form action="page5_3.php" method="post" class="testes" id="testes">
 				<table class="testes_tabela">
 					<tr>
 						<td colspan=4 class="testes_GISCHA_titulo1">Ordem original:</td>
@@ -171,7 +169,7 @@ function selecionarImagem(novaImagem, posImagem) {
 						<td colspan=2 class="testes_enviar"><button type="button" onclick="mySubmit();">Enviar</button></td>
 					</tr>
 					<tr>
-						<td colspan=4 class="testes_progresso"><img alt="Progresso 1/5" src="images/progress_bar/progress_bar_01.png"></td>
+						<td colspan=4 class="testes_progresso"><img alt="Progresso 2/5" src="images/progress_bar/progress_bar_02.png"></td>
 					</tr>
 					<tr class="testes_abas">
 						<td colspan=4 class="testes_progresso"><img alt="Teste 4" src="images/progress_bar_2/progress_bar_2_04.png"></td>
