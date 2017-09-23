@@ -10,7 +10,9 @@
 <script>
 var startTime, random
 var resposta = [0, 0, 0, 0];
+var ordemCerta = [0, 0, 0, 0];
 var contador = 0;
+var terminou = 0;
 
 function shuffle(o) {
     for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
@@ -26,12 +28,16 @@ function gerarImagem () {
 	var imagens = document.getElementsByName("GISCHA_ordem");
 	imagens[randomPosicoes[0]].src = "images/GISCHA/gray/1.png";
 	imagens[randomPosicoes[0]].alt = "1";
+	ordemCerta[randomPosicoes[0]] = 1;
 	imagens[randomPosicoes[1]].src = "images/GISCHA/gray/2.png";
 	imagens[randomPosicoes[1]].alt = "2";
+	ordemCerta[randomPosicoes[1]] = 2;
 	imagens[randomPosicoes[2]].src = "images/GISCHA/gray/3.png";
 	imagens[randomPosicoes[2]].alt = "3";
+	ordemCerta[randomPosicoes[2]] = 3;
 	imagens[randomPosicoes[3]].src = "images/GISCHA/gray/4.png";
 	imagens[randomPosicoes[3]].alt = "4";
+	ordemCerta[randomPosicoes[3]] = 4;
 
 	var randomPosicoes = shuffle(posicoes);	
 	var imagens = document.getElementsByName("GISCHA_resposta");
@@ -47,10 +53,7 @@ function gerarImagem () {
 }
 
 function mySubmit() {
-	var temp
-
-	temp = document.forms["testes"]["image_selecionada"].value;
-	if (temp == "") {
+	if (terminou == 0) {
 		alert("Se estiver com dificuldades para responder, utilize o botão PULAR.");
 		return false;
 	}
@@ -59,7 +62,8 @@ function mySubmit() {
 	var timeSpent = (endTime - startTime);
 	document.getElementById("tempo_gasto").value = timeSpent;
 	document.getElementById("pulou").value = 0;
-	document.getElementById("image_correta").value = random + 1;
+	document.getElementById("ordem_correta").value = ordemCerta;
+	document.getElementById("ordem_selecionada").value = resposta;
 	document.getElementById("testes").submit();
  }
 
@@ -68,7 +72,8 @@ function pular() {
 	var timeSpent = (endTime - startTime);
 	document.getElementById("tempo_gasto").value = timeSpent;
 	document.getElementById("pulou").value = 1;
-	document.getElementById("image_correta").value = random + 1;
+	document.getElementById("ordem_correta").value = ordemCerta;
+	document.getElementById("ordem_selecionada").value = resposta;
 	document.getElementById("testes").submit();
  }
 
@@ -85,32 +90,27 @@ function reiniciar() {
     	source = imagensSelecionadas[i].src;
 		imagensSelecionadas[i].src = source.replace("gray", "green");
 	}
+	terminou = 0;
 }
 
-function selecionarImagem(novaImagem, idImagem) {
+function selecionarImagem(novaImagem, posImagem) {
 	if (novaImagem.className == "testes_GISCHA_imagens_selecionada") {
 		if (confirm("Você já selecionou esta opção antes.\nDeseja limpar e recomeçar?") == true) {
 			reiniciar();
 		} else {
-    		console.log("fazer nada")
 		}
 	} else {
-		var legenda = "legenda_" + idImagem;
-		document.getElementById(legenda).innerHTML = contador + 1;
+		var legenda = "legenda_" + posImagem;
+		document.getElementById(legenda).innerHTML = contador + 1 + "ª";
 		novaImagem.className = "testes_GISCHA_imagens_selecionada";
 		source = novaImagem.src;
 		novaImagem.src = source.replace("green", "gray");
-		resposta[contador] = idImagem;
+		resposta[contador] = novaImagem.alt;
 		contador = contador + 1;
-		console.log(resposta);
-	}	
-
-	/*var antigaImagem = document.getElementsByClassName("testes_GISCHA_imagens_selecionada");
-	if(antigaImagem[0]) {
-		antigaImagem[0].className = "testes_GISCHA_imagens";
+		if (contador == 4) {
+			terminou = 1;
+		}
 	}
-	novaImagem.className = "testes_GISCHA_imagens_selecionada";
-	document.getElementById("image_selecionada").value = novaImagem.alt;*/
 }
 </script>
 </head>
@@ -158,8 +158,8 @@ function selecionarImagem(novaImagem, idImagem) {
 				</table> 
 				<input type="hidden" id="tempo_gasto" name="tempo_gasto" value="" />
 				<input type="hidden" id="pulou" name="pulou" value="" />
-				<input type="hidden" id="image_correta" name="image_correta" value="">
-				<input type="hidden" id="image_selecionada" name="image_selecionada" value="">
+				<input type="hidden" id="ordem_correta" name="image_correta" value="">
+				<input type="hidden" id="ordem_selecionada" name="image_selecionada" value="">
 			</form>
 		</div>
 	</div>
