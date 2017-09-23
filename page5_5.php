@@ -138,7 +138,7 @@ function selecionarImagem(novaImagem, posImagem) {
     ?> 
 	<div class="page">
 		<div class="form">
-			<form action="page6.php" method="post" class="testes" id="testes">
+			<form action="page5_6.php" method="post" class="testes" id="testes">
 				<table class="testes_tabela">
 					<tr>
 						<td colspan=4 class="testes_GISCHA_titulo1">Ordem original:</td>

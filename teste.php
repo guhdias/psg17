@@ -13,7 +13,7 @@
 			alert("Responda à todas as perguntas antes de prosseguir.");
 			return false;
 		} else {
-			document.getElementById("avaliacao").submit();
+			document.getElementById("index").submit();
 		}
      }
 
@@ -50,31 +50,9 @@
 </head>
 
 <body>
-
-    	<?php
-    session_start();
-    $formId = $_SESSION['formId'];
-    
-    $db = pg_connect('host=ec2-54-225-182-108.compute-1.amazonaws.com dbname=de9j18h45cq9u5 user=inqlcbeulcqcts password=b38764f23bb9348ca0dced3ff38eb2d381e88e0f3b3a59076a0c345f78d923e3');
-    
-    $imagem = pg_escape_string($_POST['imagem_id']);
-    $resposta = pg_escape_string($_POST['respTextCaptcha']);
-    $pulou = pg_escape_string($_POST['pulou']);
-    $tempo_gasto = pg_escape_string($_POST['tempo_gasto']);
-    
-    $query = "UPDATE avaliacoes SET imagem_1_5='" . $imagem . "', resposta_1_5='" . $resposta . "', pulou_1_5='" . $pulou . "', tempo_1_5='" . $tempo_gasto . "' WHERE id='" . $formId . "';";
-    $result = pg_query($query);
-    if (! $result) {
-        $errormessage = pg_last_error();
-        echo "Error with query: " . $errormessage;
-        exit();
-    }
-    pg_close();
-    ?>
-    
-	<div class="page">
+<div class="page">
 		<div class="form">
-			<form action="page3_1.php" method="post" class="avaliacao" id="avaliacao">
+			<form action="www.google.com.br" method="post" class="avaliacao" id="index">
 				<table class="avaliacao_tabela">
 					<tr>
 						<td class="avaliacao_titulo">Avalie o tipo de teste 1</td>

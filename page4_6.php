@@ -5,6 +5,47 @@
 <title>Pesquisa testes CAPTCHA</title>
 
 <link rel="stylesheet" href="css/style.css">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script> 
+	function mySubmit() {
+		if (!validarFormulario()) {
+			alert("Responda à todas as perguntas antes de prosseguir.");
+			return false;
+		} else {
+			document.getElementById("avaliacao").submit();
+		}
+     }
+
+     function validarFormulario() {
+     	var valido = true;
+     	if ($('input[name=avalia1]:checked').length == 0) {
+     		valido = false;
+     		return valido;
+		}
+		if ($('input[name=avalia2]:checked').length == 0) {
+     		valido = false;
+     		return valido;
+		}
+		if ($('input[name=avalia3]:checked').length == 0) {
+     		valido = false;
+     		return valido;
+		}
+		if ($('input[name=avalia4]:checked').length == 0) {
+     		valido = false;
+     		return valido;
+		}
+		if ($('input[name=avalia5]:checked').length == 0) {
+     		valido = false;
+     		return valido;
+		}
+		if ($('input[name=avalia6]:checked').length == 0) {
+     		valido = false;
+     		return valido;
+		}
+		return valido;
+     }
+</script>
 
 </head>
 
@@ -147,7 +188,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="avaliacao_botao"><button>Enviar</button></td>
+						<td class="avaliacao_botao"><button type="button" onclick="mySubmit();">Prosseguir</button></td>
 					</tr>
 				</table>
 			</form>

@@ -13,11 +13,15 @@
 			alert("Responda à todas as perguntas antes de prosseguir.");
 			return false;
 		} else {
+			var date = endTime.getDate()+'/'+(endTime.getMonth()+1)+'/'+endTime.getFullYear();
+			var time = endTime.getHours() + ":" + endTime.getMinutes() + ":" + endTime.getSeconds();
+			var dateTime = date+' - '+time;
+			document.getElementById("data_hora").value = dateTime;
 			document.getElementById("avaliacao").submit();
 		}
      }
 
-     function validarFormulario() {
+    function validarFormulario() {
      	var valido = true;
      	if ($('input[name=avalia1]:checked').length == 0) {
      		valido = false;
@@ -50,19 +54,18 @@
 </head>
 
 <body>
-
-    	<?php
+	<?php
     session_start();
     $formId = $_SESSION['formId'];
     
     $db = pg_connect('host=ec2-54-225-182-108.compute-1.amazonaws.com dbname=de9j18h45cq9u5 user=inqlcbeulcqcts password=b38764f23bb9348ca0dced3ff38eb2d381e88e0f3b3a59076a0c345f78d923e3');
     
-    $imagem = pg_escape_string($_POST['imagem_id']);
-    $resposta = pg_escape_string($_POST['respTextCaptcha']);
+    $correta = pg_escape_string($_POST['ordem_correta']);
+    $selecionada = pg_escape_string($_POST['ordem_selecionada']);
     $pulou = pg_escape_string($_POST['pulou']);
     $tempo_gasto = pg_escape_string($_POST['tempo_gasto']);
     
-    $query = "UPDATE avaliacoes SET imagem_1_5='" . $imagem . "', resposta_1_5='" . $resposta . "', pulou_1_5='" . $pulou . "', tempo_1_5='" . $tempo_gasto . "' WHERE id='" . $formId . "';";
+    $query = "UPDATE avaliacoes SET correta_4_5='" . $correta . "', selecionada_4_5='" . $selecionada . "', pulou_4_5='" . $pulou . "', tempo_4_5='" . $tempo_gasto . "' WHERE id='" . $formId . "';";
     $result = pg_query($query);
     if (! $result) {
         $errormessage = pg_last_error();
@@ -70,14 +73,13 @@
         exit();
     }
     pg_close();
-    ?>
-    
-	<div class="page">
+    ?> 
+    	<div class="page">
 		<div class="form">
-			<form action="page3_1.php" method="post" class="avaliacao" id="avaliacao">
+			<form action="page6.php" method="post" class="avaliacao" id="avaliacao">
 				<table class="avaliacao_tabela">
 					<tr>
-						<td class="avaliacao_titulo">Avalie o tipo de teste 1</td>
+						<td class="avaliacao_titulo">Avalie o tipo de teste 4</td>
 					</tr>
 					<tr>
 						<td class="avaliacao_conteudo">
@@ -194,6 +196,7 @@
 						<td class="avaliacao_botao"><button type="button" onclick="mySubmit();">Prosseguir</button></td>
 					</tr>
 				</table>
+				<input type="hidden" id="data_hora" name="data_hora" value="" />
 			</form>
 		</div>
 	</div>

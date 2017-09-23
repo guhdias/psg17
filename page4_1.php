@@ -59,7 +59,14 @@ function gerarImagem () {
 		
 	} else {
   	alert("Ops! Seu dispositivo não é compatível com este teste, irei te direcionar ao próximo :)");
-  	// REDIRECIONAR PARA O PROXIMO TESTE E PULAR TODAS AS PROXIMAS TENTATIVAS.
+	document.getElementById("avalia1").value = "X";
+	document.getElementById("avalia2").value = "X";
+	document.getElementById("avalia3").value = "X";
+	document.getElementById("avalia4").value = "X";
+	document.getElementById("avalia5").value = "X";
+	document.getElementById("avalia6").value = "X";
+	document.getElementById("testes").action = "page5_1.php";
+	document.getElementById("testes").submit();
 	} 
 }
 
@@ -140,6 +147,12 @@ function pular() {
 				<input type="hidden" id="tempo_gasto" name="tempo_gasto" value="" />
 				<input type="hidden" id="pulou" name="pulou" value="" />
 				<input type="hidden" id="flag_CAPPCHA" name="flag_CAPPCHA" value="">
+				<input type="hidden" id="avalia1" name="avalia1" value="">
+				<input type="hidden" id="avalia2" name="avalia1" value="">
+				<input type="hidden" id="avalia3" name="avalia1" value="">
+				<input type="hidden" id="avalia4" name="avalia1" value="">
+				<input type="hidden" id="avalia5" name="avalia1" value="">
+				<input type="hidden" id="avalia6" name="avalia1" value="">
 			</form>
 		</div>
 	</div>
