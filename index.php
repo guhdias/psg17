@@ -2,9 +2,9 @@
 require_once 'mobile_detect/Mobile_Detect.php';
 $detect = new Mobile_Detect;
 if (!($detect->isMobile())) {
-    //header("Location: http://www.google.com.br/");
-    //exit();
-    echo "NOT MOBILE!!";
+    header("Location: not_mobile.php");
+    exit();
+    
 }
 ?>
 <!DOCTYPE html>
