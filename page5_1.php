@@ -179,8 +179,8 @@ function selecionarImagem(novaImagem, posImagem) {
 				</table> 
 				<input type="hidden" id="tempo_gasto" name="tempo_gasto" value="" />
 				<input type="hidden" id="pulou" name="pulou" value="" />
-				<input type="hidden" id="ordem_correta" name="image_correta" value="">
-				<input type="hidden" id="ordem_selecionada" name="image_selecionada" value="">
+				<input type="hidden" id="ordem_correta" name="ordem_correta" value="">
+				<input type="hidden" id="ordem_selecionada" name="ordem_selecionada" value="">
 			</form>
 		</div>
 	</div>
