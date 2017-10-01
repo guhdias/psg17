@@ -39,6 +39,7 @@ function mySubmit() {
 	var timeSpent = (endTime - startTime);
 	document.getElementById("tempo_gasto").value = timeSpent;
 	document.getElementById("pulou").value = 0;
+	document.getElementById("testes").action = "page2_2.php";
 	document.getElementById("testes").submit();
  }
 
@@ -48,6 +49,7 @@ function pular() {
 	document.getElementById("tempo_gasto").value = timeSpent;
 	document.getElementById("pulou").value = 1;
 	document.getElementById("respTextCaptcha").value = " ";
+	document.getElementById("testes").action = "page2_2.php";
 	document.getElementById("testes").submit();
  }
 </script>
@@ -80,7 +82,7 @@ function pular() {
 
 	<div class="page">
 		<div class="form">
-			<form action="page2_2.php" method="post" class="testes" id="testes">
+			<form method="post" class="testes" id="testes">
 				<table class="testes_tabela">
 					<tr>
 						<td colspan=4 class="testes_titulo">Digite o texto abaixo:</td>

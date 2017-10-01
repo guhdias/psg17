@@ -34,7 +34,7 @@
 
 		temp = document.forms["demografia"]["idade"].value;
 		if (temp == "") {
-			alert("Por favor preencher a idade.");
+			alert("Por favor preencher a idade, apenas números.");
 			return false;
     		}
 
