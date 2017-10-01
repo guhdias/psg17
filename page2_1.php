@@ -82,7 +82,7 @@ function pular() {
 
 	<div class="page">
 		<div class="form">
-			<form onsubmit="mySubmit();" method="post" class="testes" id="testes">
+			<form action="#" onsubmit="mySubmit();" method="post" class="testes" id="testes">
 				<table class="testes_tabela">
 					<tr>
 						<td colspan=4 class="testes_titulo">Digite o texto abaixo:</td>
