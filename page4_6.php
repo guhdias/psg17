@@ -71,7 +71,7 @@
     ?> 
     	<div class="page">
 		<div class="form">
-			<form action="page5_1.php" method="post" class="avaliacao">
+			<form action="page5_1.php" method="post" class="avaliacao" id="avaliacao">
 				<table class="avaliacao_tabela">
 					<tr>
 						<td class="avaliacao_titulo">Avalie o tipo de teste 3</td>
