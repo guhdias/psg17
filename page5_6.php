@@ -13,6 +13,7 @@
 			alert("Responda à todas as perguntas antes de prosseguir.");
 			return false;
 		} else {
+			var endTime = new Date();
 			var date = endTime.getDate()+'/'+(endTime.getMonth()+1)+'/'+endTime.getFullYear();
 			var time = endTime.getHours() + ":" + endTime.getMinutes() + ":" + endTime.getSeconds();
 			var dateTime = date+' - '+time;

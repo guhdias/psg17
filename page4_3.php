@@ -128,7 +128,7 @@ function pular() {
 						<td colspan=2 class="testes_enviar"><button type="button" onclick="mySubmit();">Enviar</button></td>
 					</tr>
 					<tr>
-						<td colspan=4 class="testes_progresso"><img alt="Progresso 1/5" src="images/progress_bar/progress_bar_01.png"></td>
+						<td colspan=4 class="testes_progresso"><img alt="Progresso 3/5" src="images/progress_bar/progress_bar_03.png"></td>
 					</tr>
 					<tr class="testes_abas">
 						<td colspan=4 class="testes_progresso"><img alt="Teste 3" src="images/progress_bar_2/progress_bar_2_03.png"></td>
