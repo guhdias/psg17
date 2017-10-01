@@ -78,7 +78,7 @@ function pular() {
 
 	<div class="page">
 		<div class="form">
-			<form action="page2_3.php" method="post" class="testes" id="testes">
+			<form action="page2_3.php" method="post" class="testes" id="testes" onsubmit="return false;">
 				<table class="testes_tabela">
 					<tr>
 						<td colspan=4 class="testes_titulo">Digite o texto abaixo:</td>
